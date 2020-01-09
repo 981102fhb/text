@@ -24,6 +24,7 @@ public class UserController {
 		List<User> users = userService.selectList();
 		// 将查询出来的用户数据共享
 		model.addAttribute("users", users);
+		System.out.println("123");
 		return "userList";
 	}
 	
