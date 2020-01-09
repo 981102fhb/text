@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <!-- 配置前端控制器，让浏览器的所有请求都经过springmvc框架 -->
+  <servlet>
+            <servlet-name>MVC</servlet-name>
+            <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+            <!-- 读取springmvc配置文件 -->
+            <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring*.xml</param-value>
+            </init-param>
+            <!--初始化容器，创建所有对象  -->
+            <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  
+  <servlet-mapping>
+         <servlet-name>MVC</servlet-name>
+         
+          <!-- 有两种方式来处理静态资源的访问，一个是设置 <url-pattern>*.do</url-pattern>，另一个就是在springmvc配置文件中设置-->
+          <!-- 我们可以通过使用<url-pattern>*.do</url-pattern>来过滤请求，
+                                      这样如果我们在页面中的请求中添加后缀名.do就可以避免对静态资源的过滤了，也就不需要对静态资源做特殊处理了 -->
+         <url-pattern>*.do</url-pattern>
+  
+  </servlet-mapping>
+  
+</web-app>
